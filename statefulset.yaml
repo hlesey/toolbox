@@ -1,0 +1,15 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: debug
+spec:
+  replicas: 1
+  serviceName: "debug"
+  template:
+    metadata:
+      labels:
+        app: debug
+    spec:
+      containers:
+      - name: debug
+        image: qedzone/debug-container
