@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: toolbox
+spec:
+  replicas: 1
+  serviceName: "toolbox"
+  template:
+    metadata:
+      labels:
+        app: toolbox
+    spec:
+      containers:
+      - name: toolbox
+        image: hlesey/toolbox
+        command: 
+          - /usr/bin/bash
+          - "-c"
+          - "sleep infinity"
