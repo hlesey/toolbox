@@ -8,4 +8,4 @@ RUN apt-get install -y \
 
 RUN rm -rf /var/lib/apt/lists/*
 
-CMD ["/bin/sleep infinity"]
+CMD ["/bin/sleep", "infinity"]
