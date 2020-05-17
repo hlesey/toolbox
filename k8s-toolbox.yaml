@@ -13,7 +13,3 @@ spec:
       containers:
       - name: toolbox
         image: hlesey/toolbox
-        command: 
-          - /usr/bin/bash
-          - "-c"
-          - "sleep infinity"
