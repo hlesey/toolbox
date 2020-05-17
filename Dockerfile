@@ -1,16 +1,11 @@
-FROM centos:latest
+FROM debian:buster-slim
 
-ENV GOLANG_VERSION 1.14.1
-ENV KUBE_VERSION v1.18.2
+RUN apt-get update 
 
-RUN dnf -y install \ 
-    nmap telnet bind-utils \
-    curl wget vim iperf3 tcpdump \
-    git mtr traceroute 
-RUN wget -qO- https://dl.google.com/go/go${GOLANG_VERSION}.linux-amd64.tar.gz | tar -xvz -C /usr/local/
-RUN echo "PATH=$PATH:/usr/local/go/bin" >> /root/.bashrc
-RUN wget -q https://storage.googleapis.com/kubernetes-release/release/${KUBE_VERSION}/bin/linux/amd64/kubectl -O /usr/bin/kubectl
-RUN chmod +x /usr/bin/kubectl
+RUN apt-get install -y \ 
+    nmap telnet curl wget vim dnsutils iperf tcpdump \
+    git mtr traceroute
 
-ENTRYPOINT ["/usr/bin/bash"]
-CMD ["-c", "sleep infinity"]
+RUN rm -rf /var/lib/apt/lists/*
+
+CMD ["/bin/sleep infinity"]
