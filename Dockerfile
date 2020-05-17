@@ -3,9 +3,9 @@ FROM centos:latest
 ENV GOLANG_VERSION 1.14.1
 ENV KUBE_VERSION v1.18.2
 
-RUN yum -y install \ 
+RUN dnf -y install \ 
     nmap telnet bind-utils \
-    curl wget vim iperf tcpdump \
+    curl wget vim iperf3 tcpdump \
     git mtr traceroute 
 RUN wget -qO- https://dl.google.com/go/go${GOLANG_VERSION}.linux-amd64.tar.gz | tar -xvz -C /usr/local/
 RUN echo "PATH=$PATH:/usr/local/go/bin" >> /root/.bashrc
