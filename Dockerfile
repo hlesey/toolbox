@@ -1,7 +1,7 @@
 FROM centos:latest
 
-ENV GOLANG_VERSION 1.11.3
-ENV KUBE_VERSION v1.13.4
+ENV GOLANG_VERSION 1.14.1
+ENV KUBE_VERSION v1.18.2
 
 RUN yum -y install \ 
     nmap telnet bind-utils \
