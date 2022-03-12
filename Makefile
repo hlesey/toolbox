@@ -1,4 +1,4 @@
-IMG = hlesey/toolbox
+IMG = ghcr.io/hlesey/toolbox
 TAG = 1.0
 
 all: push
