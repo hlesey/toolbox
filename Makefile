@@ -12,6 +12,10 @@ push: build
 	docker push $(IMG):latest
 	@echo Pushed $(IMG) with :latest and :$(TAG) tags
 
+build-and-push:
+	docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t $(IMG):$(TAG) --push .
+	docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t $(IMG):latest --push .
+
 run: 
 	docker run --rm -it \
 	--name toolbox \
